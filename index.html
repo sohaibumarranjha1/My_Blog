@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Trends 2025 – By Sohaib</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #7f53ac;
+            --secondary: #647dee;
+            --accent: #ff6ec4;
+            --bg: #181824;
+            --surface: #23233b;
+            --text: #f5f5f7;
+            --muted: #b0b3c6;
+            --border: #2e2e4d;
+            --radius: 18px;
+            --shadow: 0 4px 32px 0 rgba(40, 40, 80, 0.18);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            min-height: 100vh;
+            letter-spacing: 0.01em;
+            line-height: 1.7;
+            font-size: 1.08rem;
+        }
+
+        header {
+            padding: 3.5rem 2rem 2rem 2rem;
+            text-align: center;
+            background: rgba(24, 24, 36, 0.92);
+            box-shadow: var(--shadow);
+            border-radius: 0 0 var(--radius) var(--radius);
+            margin-bottom: 2rem;
+        }
+
+        header h1 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            letter-spacing: -1.5px;
+            margin-bottom: 0.5rem;
+            animation: slideIn 0.8s cubic-bezier(.77,0,.18,1) forwards;
+        }
+
+        header p {
+            color: var(--muted);
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-top: 0.2rem;
+            letter-spacing: 0.03em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            background: rgba(35, 35, 59, 0.98);
+            padding: 1.1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 16px 0 rgba(40, 40, 80, 0.08);
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(8px);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--muted);
+            font-weight: 600;
+            font-size: 1.08rem;
+            position: relative;
+            padding: 0.2rem 0.5rem;
+            transition: color 0.2s;
+            letter-spacing: 0.02em;
+        }
+
+        nav a.active,
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2.5px;
+            left: 0;
+            bottom: -5px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            border-radius: 2px;
+            transition: width 0.3s cubic-bezier(.77,0,.18,1);
+        }
+
+        nav a.active::after,
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        main {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 2rem 3rem 2rem;
+        }
+
+        section {
+            background: var(--surface);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 2.5rem;
+            padding: 2.5rem 2rem 2rem 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeInUp 1s cubic-bezier(.77,0,.18,1) forwards;
+            animation-delay: 0.2s;
+            border: 1px solid var(--border);
+        }
+
+        section:not(:first-child) {
+            animation-delay: 0.4s;
+        }
+
+        section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.1rem;
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        section p {
+            font-size: 1.13rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #fff;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 0.2rem 0.9rem;
+            border-radius: 999px;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.04em;
+            box-shadow: 0 2px 8px 0 rgba(127, 83, 172, 0.08);
+        }
+
+        ul.trends {
+            margin: 1.2rem 0 0 1.2rem;
+            padding: 0;
+            list-style: disc;
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        ul.trends li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            background: rgba(35, 35, 59, 0.98);
+            color: var(--muted);
+            font-size: 1rem;
+            border-top: 1px solid var(--border);
+            border-radius: var(--radius) var(--radius) 0 0;
+            margin-top: 2rem;
+            letter-spacing: 0.01em;
+        }
+
+        footer span {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2.1rem;
+            }
+            main {
+                padding: 0 0.5rem 2rem 0.5rem;
+            }
+            section {
+                padding: 1.3rem 0.7rem 1.1rem 0.7rem;
+            }
+            nav {
+                gap: 1.1rem;
+                font-size: 0.98rem;
+                padding: 0.7rem 0.5rem;
+            }
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-60px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        // Highlight nav on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 80;
+                    if (pageYOffset >= sectionTop) {
+                        current = section.getAttribute('id');
+                    }
+                });
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Tech Trends 2025</h1>
+        <div class="tagline">Insights & Analysis for the Next Era</div>
+        <p>Stay ahead with expert perspectives on the technologies shaping tomorrow.</p>
+    </header>
+
+    <nav>
+        <a href="#webdev">Web Dev</a>
+        <a href="#mobdev">Mobile Apps</a>
+        <a href="#reactjs">React & JS</a>
+        <a href="#design">Design</a>
+        <a href="#ai">AI & Automation</a>
+    </nav>
+
+    <main>
+        <section id="webdev">
+            <h2>⚡ Web Development</h2>
+            <p>
+                The web in 2025 is defined by seamless performance, personalization, and intelligence at the edge. Modern frameworks are converging SSR, static, and AI-driven rendering for instant, context-aware experiences.
+            </p>
+            <ul class="trends">
+                <li><strong>Astro</strong>, <strong>Qwik</strong>, and <strong>Next.js</strong> lead with partial hydration and edge-first delivery.</li>
+                <li><strong>WebAssembly</strong> powers browser-native apps, from design tools to AAA games.</li>
+                <li>Emotion-driven UIs adapt in real time, leveraging user data and AI.</li>
+            </ul>
+        </section>
+
+        <section id="mobdev">
+            <h2>📱 Mobile App Dev</h2>
+            <p>
+                Cross-platform is now uncompromising. Mobile frameworks deliver native feel, while AR and AI integrations redefine user engagement.
+            </p>
+            <ul class="trends">
+                <li><strong>Flutter 4</strong> and <strong>React Native Fabric</strong> offer near-native performance and smooth animations.</li>
+                <li>Instant-loading PWAs and deep OS integrations are standard for mobile-first audiences.</li>
+                <li>Voice AI and AR overlays become core to mobile UX.</li>
+            </ul>
+        </section>
+
+        <section id="reactjs">
+            <h2>⚛️ React & JavaScript</h2>
+            <p>
+                React and JavaScript ecosystems are focused on developer velocity and runtime efficiency. Server Components and Suspense unlock new patterns for scalable, maintainable UIs.
+            </p>
+            <ul class="trends">
+                <li><strong>React Server Components</strong> and <strong>Next.js 15</strong> enable granular data fetching and streaming.</li>
+                <li>Hydration and compile-time optimizations reduce bundle sizes and TTI.</li>
+                <li><strong>TypeScript</strong> remains essential for robust, large-scale frontend development.</li>
+            </ul>
+        </section>
+
+        <section id="design">
+            <h2>🎨 UI/UX & Design</h2>
+            <p>
+                Design in 2025 is immersive, bold, and accessible. New CSS features and design systems empower teams to build visually stunning, responsive interfaces.
+            </p>
+            <ul class="trends">
+                <li>Neobrutalism, glassmorphism, and dynamic dark modes set the visual tone.</li>
+                <li>Motion UI, micro-interactions, and 3D elements drive engagement.</li>
+                <li>CSS <strong>Container Queries</strong> and <strong>Subgrid</strong> revolutionize responsive layouts.</li>
+            </ul>
+        </section>
+
+        <section id="ai">
+            <h2>🤖 AI & Automation</h2>
+            <p>
+                AI is now a core part of the developer workflow, from code generation to deployment. Automation and serverless infrastructure are the new normal.
+            </p>
+            <ul class="trends">
+                <li>AI assistants like Copilot and GPT streamline coding, debugging, and documentation.</li>
+                <li>Voice-driven development and conversational UIs emerge.</li>
+                <li>Auto-scaling, event-driven APIs power resilient, cost-effective backends.</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 <span>Sohaib</span> &mdash; Crafted with expertise and vision for the future.
+    </footer>
+</body>
+
+</html>
